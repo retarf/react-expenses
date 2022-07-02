@@ -3,11 +3,11 @@ version: '3'
 
 services:
   front:
-    image: node
+    image: node:16.11
     volumes:
       - ./project:/project
-    working_dir: /project/my-app
-    user: "node"
+    working_dir: /project/react-complete-guide
+    #user: "node"
     ports: 
       - "3000:3000"
     entrypoint: npm start 
