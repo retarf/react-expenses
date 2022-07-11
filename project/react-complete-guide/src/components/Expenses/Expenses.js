@@ -3,14 +3,13 @@ import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 
 const Expenses = (props) => {
-    const expenses = props.expenses.map(
-        (expense) => {
-            return <ExpenseItem title={expense.title} amount={expense.amount} date={expense.date}/>
-        }
+    const items = props.expenses.map(
+        (item) => {
+            return <ExpenseItem key={item.title} title={item.title} amount={item.amount} date={item.date}/> }
     )
     return (
         <Card className="expenses" >
-            {expenses}
+            {items}
         </Card>
     )
 };
