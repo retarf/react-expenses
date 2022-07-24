@@ -6,12 +6,17 @@ import ExpensesFilter from "./ExpensesFilter";
 import { useState } from "react";
 
 const Expenses = (props) => {
-    const items = props.expenses.map(
+
+    const [filteredYear, setfilteredYear] = useState('2022');
+
+    const filteredExpenses = props.expenses.filter(expense => {
+        return expense.date.getFullYear().toString() === filteredYear;
+    });
+
+    const items = filteredExpenses.map(
         (item) => {
             return <ExpenseItem key={item.title} title={item.title} amount={item.amount} date={item.date}/> }
     );
-
-    const [filteredYear, setfilteredYear] = useState('2022');
 
     const filterChangeHandler = selectedYear => {
         console.log(selectedYear);
